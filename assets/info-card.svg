@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" width="600" height="560" role="img" aria-label="Terminal information card for Sheshakanth RA"><style>
+    text { font-family:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace; }
+    .pr  { font-size:16px; fill:#3FB950; font-weight:600; letter-spacing:.4px; }
+    .crt { font-size:16px; fill:#3FB950; }
+    .sub { font-size:11.5px; fill:#5A6B74; letter-spacing:.6px; }
+    .k   { font-size:11.5px; fill:#4E6470; letter-spacing:1.4px; }
+    .v   { font-size:13.5px; fill:#D5E2E8; }
+    .ft  { font-size:11.5px; fill:#5A6B74; letter-spacing:1.6px; }
+    .rule   { stroke:#171F24; stroke-width:1; }
+    .corner { stroke:#2A353B; stroke-width:1; fill:none; }
+    .dot    { fill:#3FB950; }
+
+    /* One rule, one keyframe: every line supplies its own delay via --t. */
+    .ln { animation: rise 0.52s cubic-bezier(.2,.7,.3,1) var(--t) both; }
+    @keyframes rise {
+      from { opacity:0; transform:translateY(7px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .frame { animation: rise 0.52s ease-out both; }
+    /* Caret blinks while the panel fills, then rests lit.
+       The final keyframe MUST be opacity:1 — with `both`, the animation holds
+       its last frame, so ending on the dark half would leave the caret gone. */
+    .crt { animation: blink .62s steps(1,end) 6 both; }
+    @keyframes blink { 0%,48%{opacity:1} 49%,98%{opacity:0} 99%,100%{opacity:1} }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ln, .frame, .crt { animation: none; }
+    }
+    </style><defs><pattern id="ig" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#131A1F" stroke-width="1"/></pattern></defs><rect width="600" height="560" fill="#0B0F12"/><rect width="600" height="560" fill="url(#ig)" opacity=".55"/><g class="frame"><rect x=".5" y=".5" width="599" height="559" fill="none" stroke="#1C2429"/><path d="M12 26 V12 H26" class="corner"/><path d="M574 12 H588 V26" class="corner"/><path d="M12 534 V548 H26" class="corner"/><path d="M574 548 H588 V534" class="corner"/></g><g class="ln" style="--t:0.18s"><text x="30" y="56" class="pr">shesh@github<tspan class="crt" dx="6">_</tspan></text></g><g class="ln" style="--t:0.27s"><text x="30" y="76" class="sub">~/identity — system information</text></g><g class="ln" style="--t:0.35s"><line x1="30" y1="92" x2="570" y2="92" class="rule"/></g><g class="ln" style="--t:0.43s"><text x="30" y="154" class="k">NAME</text><text x="162" y="154" class="v">Sheshakanth RA</text></g><g class="ln" style="--t:0.52s"><text x="30" y="186" class="k">ROLE</text><text x="162" y="186" class="v">AI / ML × Full-Stack Engineer</text></g><g class="ln" style="--t:0.60s"><text x="30" y="218" class="k">FOCUS</text><text x="162" y="218" class="v">Intelligent systems, applied ML</text></g><g class="ln" style="--t:0.69s"><line x1="30" y1="233" x2="570" y2="233" class="rule"/></g><g class="ln" style="--t:0.78s"><text x="30" y="280" class="k">BUILDING</text><text x="162" y="280" class="v">FreshRoute</text></g><g class="ln" style="--t:0.86s"><text x="30" y="312" class="k">STACK</text><text x="162" y="312" class="v">Python · FastAPI · React · Postgres</text></g><g class="ln" style="--t:0.95s"><text x="30" y="344" class="k">INTERFACE</text><text x="162" y="344" class="v">Next.js · TypeScript</text></g><g class="ln" style="--t:1.03s"><line x1="30" y1="359" x2="570" y2="359" class="rule"/></g><g class="ln" style="--t:1.11s"><text x="30" y="406" class="k">BASE</text><text x="162" y="406" class="v">Chennai, IN</text></g><g class="ln" style="--t:1.20s"><text x="30" y="438" class="k">PORTFOLIO</text><text x="162" y="438" class="v">shesh-portfolio.vercel.app</text></g><g class="ln" style="--t:1.28s"><text x="30" y="470" class="k">STATUS</text><text x="162" y="470" class="v">open to collaboration</text></g><g class="ln" style="--t:1.37s"><line x1="30" y1="500" x2="570" y2="500" class="rule"/><circle cx="34" cy="521" r="3.5" class="dot"/><text x="48" y="526" class="ft">building · learning · shipping</text></g></svg>

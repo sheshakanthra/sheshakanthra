@@ -1,0 +1,19 @@
+# --- required by the daily GitHub Action (heatmap only) --------------------
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# --- required locally, for the one-off portrait / info-card generation ------
+numpy>=1.26.0
+Pillow>=10.2.0
+scipy>=1.11.0
+
+# --- optional --------------------------------------------------------------
+# Higher-quality background matting for prep_photo.py. Large download
+# (~180 MB with onnxruntime). Without it the script falls back to a
+# studio-white chroma matte, which is what produced the committed portrait.
+#
+#   pip install "rembg[cpu]"
+#
+# Optional: rasterise an SVG to PNG for local preview.
+#
+#   pip install cairosvg

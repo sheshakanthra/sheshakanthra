@@ -1,0 +1,8 @@
+# Local preview / debug artefacts from the generators
+assets/*.preview.png
+assets/source/*-debug-*.png
+
+__pycache__/
+*.pyc
+.venv/
+venv/

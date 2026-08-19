@@ -1,0 +1,62 @@
+name: update profile art
+
+# Refreshes ONLY the contribution heatmap.
+#
+# The particle portrait and the info card are deliberately NOT regenerated
+# here: they are deterministic build artefacts of a photo and a content block
+# that change maybe twice a year. Rebuilding them daily would churn a 450 KB
+# binary-ish diff for no reason. Regenerate those locally and commit them.
+
+on:
+  schedule:
+    # 03:17 UTC daily. Off-the-hour on purpose — GitHub throttles cron jobs
+    # that pile up on :00, which silently delays them.
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/fetch_contributions.py"
+      - "scripts/render_heatmap_svg.py"
+      - ".github/workflows/update-profile-art.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-art
+  cancel-in-progress: false
+
+jobs:
+  heatmap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        # Only the two libraries the heatmap path actually needs — keeps the
+        # job under ~15s instead of pulling numpy/scipy/Pillow.
+        run: python -m pip install --upgrade pip requests beautifulsoup4
+
+      - name: Fetch contribution data
+        run: python scripts/fetch_contributions.py --user "${{ github.repository_owner }}"
+
+      - name: Render heatmap SVG
+        run: python scripts/render_heatmap_svg.py
+
+      - name: Commit refreshed art
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(art): refresh contribution heatmap [skip ci]"
+          file_pattern: "assets/contrib-heatmap.svg data/contributions.json"
+          commit_user_name: "profile-art-bot"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
