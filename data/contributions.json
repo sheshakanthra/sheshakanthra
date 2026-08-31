@@ -1,23 +1,23 @@
 {
   "user": "sheshakanthra",
-  "generated_at": "2026-08-30T09:16:26Z",
+  "generated_at": "2026-08-31T09:47:52Z",
   "range": {
     "from": "2025-08-31",
-    "to": "2026-08-30",
+    "to": "2026-08-31",
     "weeks": 53
   },
   "stats": {
-    "total": 375,
-    "current_streak": 11,
-    "longest_streak": 11,
-    "longest_streak_end": "2026-07-05",
+    "total": 381,
+    "current_streak": 12,
+    "longest_streak": 12,
+    "longest_streak_end": "2026-08-30",
     "best_day": {
       "date": "2026-08-25",
       "count": 23
     },
-    "active_days": 89,
-    "days_tracked": 365,
-    "average_per_day": 1.03,
+    "active_days": 90,
+    "days_tracked": 366,
+    "average_per_day": 1.04,
     "monthly": {
       "2025-08": 0,
       "2025-09": 3,
@@ -31,7 +31,7 @@
       "2026-05": 2,
       "2026-06": 42,
       "2026-07": 118,
-      "2026-08": 111
+      "2026-08": 117
     }
   },
   "days": [
@@ -1857,6 +1857,11 @@
     },
     {
       "date": "2026-08-30",
+      "level": 2,
+      "count": 6
+    },
+    {
+      "date": "2026-08-31",
       "level": 0,
       "count": 0
     }
